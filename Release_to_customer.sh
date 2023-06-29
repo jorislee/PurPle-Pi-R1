@@ -86,7 +86,7 @@ else
 	if [ "${fastboot}" = "fastboot" ]; then
 		make infinity2m_spinand_ssc011a_s01a_minigui_fastboot_doublenet_defconfig
 	else
-		make infinity2m_spinand_ssc011a_s01a_minigui_doublenet_defconfig
+		make infinity2m_doublenet_defconfig
 	fi
 	
 fi
