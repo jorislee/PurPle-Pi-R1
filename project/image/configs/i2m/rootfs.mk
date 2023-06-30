@@ -16,7 +16,7 @@ root:
 	sed -i 's/\#PermitRootLogin prohibit-password/PermitRootLogin yes/' $(OUTPUTDIR)/rootfs/etc/ssh/sshd_config
 
 	if [ -d "firmware" ]; then \
-	   cp firmware/* /root/ -rf ;\
+	   cp firmware/* $(OUTPUTDIR)/rootfs/root/ -rf ;\
 	fi;
 
 	# foe no login
