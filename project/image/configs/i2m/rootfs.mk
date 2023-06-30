@@ -14,6 +14,11 @@ root:
 	rm $(OUTPUTDIR)/rootfs/etc/init.d/S41dhcpcd
 	cp rootfs_add_files/etc/init.d/S50sshd $(OUTPUTDIR)/rootfs/etc/init.d/S50sshd
 	sed -i 's/\#PermitRootLogin prohibit-password/PermitRootLogin yes/' $(OUTPUTDIR)/rootfs/etc/ssh/sshd_config
+
+	if [ -d "firmware" ]; then \
+	   cp firmware/* /root/ -rf ;\
+	fi;
+
 	# foe no login
 	sed -i 's/console\:\:respawn\:\/sbin\/getty -L  console 0 vt100 \# GENERIC_SERIAL/console::respawn:-\/bin\/sh/' $(OUTPUTDIR)/rootfs/etc/inittab
 	#tar xf busybox/$(BUSYBOX).tar.gz -C $(OUTPUTDIR)/rootfs
