@@ -8,7 +8,11 @@ LIB_DIR_PATH:=$(PROJ_ROOT)/release/$(PRODUCT)/$(CHIP)/common/$(TOOLCHAIN)/$(TOOL
 rootfs:root app
 root:
 	cd rootfs; tar xf rootfs.tar.gz -C $(OUTPUTDIR)
-	cp rootfs_add_files/* $(OUTPUTDIR)/rootfs/ -rf
+	rm $(OUTPUTDIR)/rootfs/etc/init.d/S80dhcp-server
+	rm $(OUTPUTDIR)/rootfs/etc/init.d/S80dhcp-relay
+	rm $(OUTPUTDIR)/rootfs/etc/init.d/S50mosquitto
+	rm $(OUTPUTDIR)/rootfs/etc/init.d/S41dhcpcd
+	cp rootfs_add_files/etc/init.d/S50sshd $(OUTPUTDIR)/rootfs/etc/init.d/S50sshd
 	sed -i 's/\#PermitRootLogin prohibit-password/PermitRootLogin yes/' $(OUTPUTDIR)/rootfs/etc/ssh/sshd_config
 	# foe no login
 	sed -i 's/console\:\:respawn\:\/sbin\/getty -L  console 0 vt100 \# GENERIC_SERIAL/console::respawn:-\/bin\/sh/' $(OUTPUTDIR)/rootfs/etc/inittab
