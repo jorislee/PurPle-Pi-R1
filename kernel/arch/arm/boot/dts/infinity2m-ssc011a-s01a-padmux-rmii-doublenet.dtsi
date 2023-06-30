@@ -1,0 +1,70 @@
+/*
+* infinity2m-ssc011a-s01a-padmux-rgb565-rmii.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+#include <../../../../drivers/sstar/include/infinity2m/padmux.h>
+#include <../../../../drivers/sstar/include/mdrv_puse.h>
+
+/ {
+    soc {
+         padmux {
+            compatible = "sstar-padmux";
+            schematic =
+               <PAD_GPIO2          PINMUX_FOR_I2C1_MODE_1      MDRV_PUSE_I2C1_SCL >,
+               <PAD_GPIO3          PINMUX_FOR_I2C1_MODE_1      MDRV_PUSE_I2C1_SDA >,
+
+               <PAD_GPIO6          PINMUX_FOR_I2C0_MODE_4        MDRV_PUSE_I2C0_SCL >,
+               <PAD_GPIO7          PINMUX_FOR_I2C0_MODE_4        MDRV_PUSE_I2C0_SDA >,
+               <PAD_GPIO8          PINMUX_FOR_SPI0_MODE_5        MDRV_PUSE_SPI0_CZ>,
+	             <PAD_GPIO9          PINMUX_FOR_SPI0_MODE_5        MDRV_PUSE_SPI0_CK >,
+	             <PAD_GPIO10         PINMUX_FOR_SPI0_MODE_5        MDRV_PUSE_SPI0_DI >,
+               <PAD_GPIO11         PINMUX_FOR_SPI0_MODE_5        MDRV_PUSE_SPI0_DO >, 
+             
+                <PAD_GPIO0           PINMUX_FOR_ETH1_MODE_4        MDRV_PUSE_NA >,
+                <PAD_GPIO1           PINMUX_FOR_ETH1_MODE_4        MDRV_PUSE_NA >,
+                <PAD_TTL16           PINMUX_FOR_GPIO_MODE          MDRV_PUSE_EMAC1_PHY_RESET>,
+                <PAD_TTL17           PINMUX_FOR_ETH1_MODE_4   	   MDRV_PUSE_NA >,
+                <PAD_TTL18           PINMUX_FOR_ETH1_MODE_4    	   MDRV_PUSE_NA >,
+                <PAD_TTL19           PINMUX_FOR_ETH1_MODE_4    	   MDRV_PUSE_NA >,
+                <PAD_TTL20           PINMUX_FOR_ETH1_MODE_4        MDRV_PUSE_NA >,
+                <PAD_TTL21           PINMUX_FOR_ETH1_MODE_4        MDRV_PUSE_NA >,
+                <PAD_TTL22           PINMUX_FOR_ETH1_MODE_4        MDRV_PUSE_NA >,
+                <PAD_TTL23           PINMUX_FOR_ETH1_MODE_4        MDRV_PUSE_NA >,
+
+                <PAD_UART1_RX         PINMUX_FOR_UART1_MODE_1       MDRV_PUSE_UART1_RX >,
+                <PAD_UART1_TX         PINMUX_FOR_UART1_MODE_1       MDRV_PUSE_UART1_TX >,
+
+                <PAD_UART0_RX        PINMUX_FOR_UART0_MODE_1       MDRV_PUSE_UART0_RX >,
+                <PAD_UART0_TX        PINMUX_FOR_UART0_MODE_1       MDRV_PUSE_UART0_TX >,
+
+                <PAD_SD_CLK           PINMUX_FOR_SDIO_MODE_1       MDRV_PUSE_SDIO0_CLK >,
+                <PAD_SD_CMD           PINMUX_FOR_SDIO_MODE_1       MDRV_PUSE_SDIO0_CMD >,
+                <PAD_SD_D0            PINMUX_FOR_SDIO_MODE_1       MDRV_PUSE_SDIO0_D0  >,
+                <PAD_SD_D1            PINMUX_FOR_SDIO_MODE_1       MDRV_PUSE_SDIO0_D1  >,
+                <PAD_SD_D2            PINMUX_FOR_SDIO_MODE_1       MDRV_PUSE_SDIO0_D2  >,
+                <PAD_SD_D3            PINMUX_FOR_SDIO_MODE_1       MDRV_PUSE_SDIO0_D3  >,
+                <PAD_PM_SD_CDZ        PINMUX_FOR_GPIO_MODE         MDRV_PUSE_SDIO0_CDZ >,
+
+                <PAD_DM_P1              PINMUX_FOR_USB_MODE     MDRV_PUSE_UTMI1_DM >,  // utmi: default not-GPIO
+                <PAD_DP_P1              PINMUX_FOR_USB_MODE     MDRV_PUSE_UTMI1_DP >,  // utmi: default not-GPIO
+                <PAD_DM_P2              PINMUX_FOR_USB_MODE     MDRV_PUSE_UTMI2_DM >,  // utmi: default not-GPIO
+                <PAD_DP_P2              PINMUX_FOR_USB_MODE     MDRV_PUSE_UTMI2_DP >;  // utmi: default not-GPIO
+            status = "ok"; // ok or disable
+            //status = "disable";
+        };
+
+    };
+};
